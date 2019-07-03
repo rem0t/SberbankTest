@@ -8,22 +8,70 @@
 
 /* Begin PBXBuildFile section */
 		3152540022CCC00A000F6A8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315253FF22CCC00A000F6A8C /* AppDelegate.swift */; };
-		3152540222CCC00A000F6A8C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3152540122CCC00A000F6A8C /* ViewController.swift */; };
+		3152540222CCC00A000F6A8C /* TranslateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3152540122CCC00A000F6A8C /* TranslateViewController.swift */; };
 		3152540522CCC00A000F6A8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3152540322CCC00A000F6A8C /* Main.storyboard */; };
 		3152540822CCC00A000F6A8C /* SberbankTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3152540622CCC00A000F6A8C /* SberbankTest.xcdatamodeld */; };
 		3152540A22CCC00B000F6A8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3152540922CCC00B000F6A8C /* Assets.xcassets */; };
 		3152540D22CCC00B000F6A8C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3152540B22CCC00B000F6A8C /* LaunchScreen.storyboard */; };
+		3152541A22CCC9F4000F6A8C /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3152541922CCC9F4000F6A8C /* MainTabBarController.swift */; };
+		3152541E22CCD0EE000F6A8C /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3152541D22CCD0EE000F6A8C /* HistoryViewController.swift */; };
+		3152542122CCD25D000F6A8C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3152542022CCD25D000F6A8C /* SettingsViewController.swift */; };
+		3152542322CCDCA2000F6A8C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3152542222CCDCA2000F6A8C /* Extensions.swift */; };
+		3152542522CCE027000F6A8C /* Dependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3152542422CCE027000F6A8C /* Dependencies.swift */; };
+		3152542822CCE211000F6A8C /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3152542722CCE211000F6A8C /* RootRouter.swift */; };
+		3152542B22CCE487000F6A8C /* MainTabBarProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3152542A22CCE487000F6A8C /* MainTabBarProtocol.swift */; };
+		3152543B22CCEAB4000F6A8C /* TranslateRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3152543A22CCEAB4000F6A8C /* TranslateRouter.swift */; };
+		3152543D22CD0798000F6A8C /* HistoryRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3152543C22CD0798000F6A8C /* HistoryRouter.swift */; };
+		3152544122CD08C4000F6A8C /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3152544022CD08C4000F6A8C /* SettingsRouter.swift */; };
+		3152544622CD0CA9000F6A8C /* TabBarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3152544522CD0CA9000F6A8C /* TabBarRouter.swift */; };
+		3152544A22CD107F000F6A8C /* TabBarProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3152544922CD107F000F6A8C /* TabBarProtocols.swift */; };
+		3152544C22CD1217000F6A8C /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3152544B22CD1217000F6A8C /* TabBarView.swift */; };
+		3152544E22CD12F1000F6A8C /* TabBarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3152544D22CD12F1000F6A8C /* TabBarPresenter.swift */; };
+		3152545022CD14B1000F6A8C /* TabBarInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3152544F22CD14B1000F6A8C /* TabBarInteractor.swift */; };
+		3152545622CD1ECE000F6A8C /* TranslateInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3152545522CD1ECE000F6A8C /* TranslateInteractor.swift */; };
+		3152545822CD1EE9000F6A8C /* TranslatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3152545722CD1EE9000F6A8C /* TranslatePresenter.swift */; };
+		3152545A22CD1F91000F6A8C /* TranslateProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3152545922CD1F91000F6A8C /* TranslateProtocols.swift */; };
+		3152545C22CD249F000F6A8C /* HistoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3152545B22CD249F000F6A8C /* HistoryPresenter.swift */; };
+		3152545E22CD24B3000F6A8C /* HistoryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3152545D22CD24B3000F6A8C /* HistoryInteractor.swift */; };
+		3152546022CD2512000F6A8C /* HistoryProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3152545F22CD2512000F6A8C /* HistoryProtocols.swift */; };
+		3152546222CD2DF9000F6A8C /* SettingsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3152546122CD2DF9000F6A8C /* SettingsProtocols.swift */; };
+		3152546422CD2E6D000F6A8C /* SettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3152546322CD2E6D000F6A8C /* SettingsInteractor.swift */; };
+		3152546622CD2E7E000F6A8C /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3152546522CD2E7E000F6A8C /* SettingsPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		315253FC22CCC00A000F6A8C /* SberbankTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SberbankTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		315253FF22CCC00A000F6A8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3152540122CCC00A000F6A8C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3152540122CCC00A000F6A8C /* TranslateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateViewController.swift; sourceTree = "<group>"; };
 		3152540422CCC00A000F6A8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3152540722CCC00A000F6A8C /* SberbankTest.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SberbankTest.xcdatamodel; sourceTree = "<group>"; };
 		3152540922CCC00B000F6A8C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3152540C22CCC00B000F6A8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3152540E22CCC00B000F6A8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3152541922CCC9F4000F6A8C /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		3152541D22CCD0EE000F6A8C /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		3152542022CCD25D000F6A8C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		3152542222CCDCA2000F6A8C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		3152542422CCE027000F6A8C /* Dependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dependencies.swift; sourceTree = "<group>"; };
+		3152542722CCE211000F6A8C /* RootRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRouter.swift; sourceTree = "<group>"; };
+		3152542A22CCE487000F6A8C /* MainTabBarProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarProtocol.swift; sourceTree = "<group>"; };
+		3152543A22CCEAB4000F6A8C /* TranslateRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateRouter.swift; sourceTree = "<group>"; };
+		3152543C22CD0798000F6A8C /* HistoryRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRouter.swift; sourceTree = "<group>"; };
+		3152544022CD08C4000F6A8C /* SettingsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRouter.swift; sourceTree = "<group>"; };
+		3152544522CD0CA9000F6A8C /* TabBarRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarRouter.swift; sourceTree = "<group>"; };
+		3152544922CD107F000F6A8C /* TabBarProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarProtocols.swift; sourceTree = "<group>"; };
+		3152544B22CD1217000F6A8C /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		3152544D22CD12F1000F6A8C /* TabBarPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarPresenter.swift; sourceTree = "<group>"; };
+		3152544F22CD14B1000F6A8C /* TabBarInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarInteractor.swift; sourceTree = "<group>"; };
+		3152545522CD1ECE000F6A8C /* TranslateInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateInteractor.swift; sourceTree = "<group>"; };
+		3152545722CD1EE9000F6A8C /* TranslatePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatePresenter.swift; sourceTree = "<group>"; };
+		3152545922CD1F91000F6A8C /* TranslateProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateProtocols.swift; sourceTree = "<group>"; };
+		3152545B22CD249F000F6A8C /* HistoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryPresenter.swift; sourceTree = "<group>"; };
+		3152545D22CD24B3000F6A8C /* HistoryInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryInteractor.swift; sourceTree = "<group>"; };
+		3152545F22CD2512000F6A8C /* HistoryProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryProtocols.swift; sourceTree = "<group>"; };
+		3152546122CD2DF9000F6A8C /* SettingsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsProtocols.swift; sourceTree = "<group>"; };
+		3152546322CD2E6D000F6A8C /* SettingsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInteractor.swift; sourceTree = "<group>"; };
+		3152546522CD2E7E000F6A8C /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +104,255 @@
 		315253FE22CCC00A000F6A8C /* SberbankTest */ = {
 			isa = PBXGroup;
 			children = (
+				3152541722CCC870000F6A8C /* PresentationLayer */,
+				3152541422CCC7E8000F6A8C /* ApplicationLayer */,
+				3152541822CCC887000F6A8C /* Resources */,
+			);
+			path = SberbankTest;
+			sourceTree = "<group>";
+		};
+		3152541422CCC7E8000F6A8C /* ApplicationLayer */ = {
+			isa = PBXGroup;
+			children = (
+				3152541622CCC831000F6A8C /* Assemblies */,
+				3152541522CCC7F9000F6A8C /* LaunchSystem */,
+				3152542222CCDCA2000F6A8C /* Extensions.swift */,
+			);
+			path = ApplicationLayer;
+			sourceTree = "<group>";
+		};
+		3152541522CCC7F9000F6A8C /* LaunchSystem */ = {
+			isa = PBXGroup;
+			children = (
 				315253FF22CCC00A000F6A8C /* AppDelegate.swift */,
-				3152540122CCC00A000F6A8C /* ViewController.swift */,
+			);
+			path = LaunchSystem;
+			sourceTree = "<group>";
+		};
+		3152541622CCC831000F6A8C /* Assemblies */ = {
+			isa = PBXGroup;
+			children = (
+				3152542422CCE027000F6A8C /* Dependencies.swift */,
+			);
+			path = Assemblies;
+			sourceTree = "<group>";
+		};
+		3152541722CCC870000F6A8C /* PresentationLayer */ = {
+			isa = PBXGroup;
+			children = (
+				3152544422CD0BF9000F6A8C /* TabBar */,
+				3152541F22CCD0F4000F6A8C /* Settings */,
+				3152541C22CCD0C0000F6A8C /* History */,
+				3152541B22CCD0B2000F6A8C /* Translate */,
+			);
+			path = PresentationLayer;
+			sourceTree = "<group>";
+		};
+		3152541822CCC887000F6A8C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				3152540322CCC00A000F6A8C /* Main.storyboard */,
 				3152540922CCC00B000F6A8C /* Assets.xcassets */,
 				3152540B22CCC00B000F6A8C /* LaunchScreen.storyboard */,
 				3152540E22CCC00B000F6A8C /* Info.plist */,
 				3152540622CCC00A000F6A8C /* SberbankTest.xcdatamodeld */,
 			);
-			path = SberbankTest;
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		3152541B22CCD0B2000F6A8C /* Translate */ = {
+			isa = PBXGroup;
+			children = (
+				3152545922CD1F91000F6A8C /* TranslateProtocols.swift */,
+				3152543022CCE6F3000F6A8C /* View */,
+				3152543322CCE766000F6A8C /* Interactor */,
+				3152543222CCE766000F6A8C /* Presenter */,
+				3152543122CCE766000F6A8C /* Router */,
+			);
+			path = Translate;
+			sourceTree = "<group>";
+		};
+		3152541C22CCD0C0000F6A8C /* History */ = {
+			isa = PBXGroup;
+			children = (
+				3152545F22CD2512000F6A8C /* HistoryProtocols.swift */,
+				3152543722CCE774000F6A8C /* View */,
+				3152543622CCE774000F6A8C /* Interactor */,
+				3152543522CCE774000F6A8C /* Presenter */,
+				3152543422CCE774000F6A8C /* Router */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		3152541F22CCD0F4000F6A8C /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				3152546122CD2DF9000F6A8C /* SettingsProtocols.swift */,
+				3152542C22CCE634000F6A8C /* View */,
+				3152542D22CCE645000F6A8C /* Interactor */,
+				3152542E22CCE658000F6A8C /* Presenter */,
+				3152542F22CCE662000F6A8C /* Router */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		3152542622CCE1DA000F6A8C /* RootRouter */ = {
+			isa = PBXGroup;
+			children = (
+				3152542722CCE211000F6A8C /* RootRouter.swift */,
+			);
+			path = RootRouter;
+			sourceTree = "<group>";
+		};
+		3152542922CCE454000F6A8C /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				3152542A22CCE487000F6A8C /* MainTabBarProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		3152542C22CCE634000F6A8C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3152542022CCD25D000F6A8C /* SettingsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3152542D22CCE645000F6A8C /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				3152546322CD2E6D000F6A8C /* SettingsInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		3152542E22CCE658000F6A8C /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				3152546522CD2E7E000F6A8C /* SettingsPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		3152542F22CCE662000F6A8C /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				3152544022CD08C4000F6A8C /* SettingsRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		3152543022CCE6F3000F6A8C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3152540122CCC00A000F6A8C /* TranslateViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3152543122CCE766000F6A8C /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				3152543A22CCEAB4000F6A8C /* TranslateRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		3152543222CCE766000F6A8C /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				3152545722CD1EE9000F6A8C /* TranslatePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		3152543322CCE766000F6A8C /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				3152545522CD1ECE000F6A8C /* TranslateInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		3152543422CCE774000F6A8C /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				3152543C22CD0798000F6A8C /* HistoryRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		3152543522CCE774000F6A8C /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				3152545B22CD249F000F6A8C /* HistoryPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		3152543622CCE774000F6A8C /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				3152545D22CD24B3000F6A8C /* HistoryInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		3152543722CCE774000F6A8C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3152541D22CCD0EE000F6A8C /* HistoryViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3152544422CD0BF9000F6A8C /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				3152542922CCE454000F6A8C /* Protocol */,
+				3152542622CCE1DA000F6A8C /* RootRouter */,
+				3152541922CCC9F4000F6A8C /* MainTabBarController.swift */,
+				3152544922CD107F000F6A8C /* TabBarProtocols.swift */,
+				3152545422CD150F000F6A8C /* View */,
+				3152545322CD1508000F6A8C /* Router */,
+				3152545222CD1500000F6A8C /* Presenter */,
+				3152545122CD14F7000F6A8C /* Interactor */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		3152545122CD14F7000F6A8C /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				3152544F22CD14B1000F6A8C /* TabBarInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		3152545222CD1500000F6A8C /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				3152544D22CD12F1000F6A8C /* TabBarPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		3152545322CD1508000F6A8C /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				3152544522CD0CA9000F6A8C /* TabBarRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		3152545422CD150F000F6A8C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3152544B22CD1217000F6A8C /* TabBarView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +426,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3152540222CCC00A000F6A8C /* ViewController.swift in Sources */,
+				3152544622CD0CA9000F6A8C /* TabBarRouter.swift in Sources */,
+				3152540222CCC00A000F6A8C /* TranslateViewController.swift in Sources */,
 				3152540022CCC00A000F6A8C /* AppDelegate.swift in Sources */,
+				3152545A22CD1F91000F6A8C /* TranslateProtocols.swift in Sources */,
+				3152541A22CCC9F4000F6A8C /* MainTabBarController.swift in Sources */,
+				3152543B22CCEAB4000F6A8C /* TranslateRouter.swift in Sources */,
+				3152541E22CCD0EE000F6A8C /* HistoryViewController.swift in Sources */,
+				3152546022CD2512000F6A8C /* HistoryProtocols.swift in Sources */,
+				3152544E22CD12F1000F6A8C /* TabBarPresenter.swift in Sources */,
+				3152542822CCE211000F6A8C /* RootRouter.swift in Sources */,
+				3152542522CCE027000F6A8C /* Dependencies.swift in Sources */,
+				3152545022CD14B1000F6A8C /* TabBarInteractor.swift in Sources */,
+				3152542B22CCE487000F6A8C /* MainTabBarProtocol.swift in Sources */,
 				3152540822CCC00A000F6A8C /* SberbankTest.xcdatamodeld in Sources */,
+				3152544A22CD107F000F6A8C /* TabBarProtocols.swift in Sources */,
+				3152545822CD1EE9000F6A8C /* TranslatePresenter.swift in Sources */,
+				3152545E22CD24B3000F6A8C /* HistoryInteractor.swift in Sources */,
+				3152542122CCD25D000F6A8C /* SettingsViewController.swift in Sources */,
+				3152543D22CD0798000F6A8C /* HistoryRouter.swift in Sources */,
+				3152545C22CD249F000F6A8C /* HistoryPresenter.swift in Sources */,
+				3152546222CD2DF9000F6A8C /* SettingsProtocols.swift in Sources */,
+				3152545622CD1ECE000F6A8C /* TranslateInteractor.swift in Sources */,
+				3152542322CCDCA2000F6A8C /* Extensions.swift in Sources */,
+				3152544C22CD1217000F6A8C /* TabBarView.swift in Sources */,
+				3152544122CD08C4000F6A8C /* SettingsRouter.swift in Sources */,
+				3152546422CD2E6D000F6A8C /* SettingsInteractor.swift in Sources */,
+				3152546622CD2E7E000F6A8C /* SettingsPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,7 +600,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N89Q9ZJQ5N;
-				INFOPLIST_FILE = SberbankTest/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/SberbankTest/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -296,7 +609,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = VK.SberbankTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -306,7 +619,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N89Q9ZJQ5N;
-				INFOPLIST_FILE = SberbankTest/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/SberbankTest/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -314,7 +628,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = VK.SberbankTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
