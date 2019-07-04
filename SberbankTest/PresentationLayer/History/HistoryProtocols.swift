@@ -14,6 +14,8 @@ protocol HistoryViewProtocol: class
     /**
      * Add here your methods for communication PRESENTER -> VIEW
      */
+    func showTranslates(translations:[TranslateEtities])
+
 }
 
 protocol HistoryRouterProtocol: class
@@ -32,10 +34,15 @@ protocol HistoryPresenterProtocol: class
     /**
      * Add here your methods for communication VIEW -> PRESENTER
      */
+    
+    func takeCountObjectsInDataBase()
+    
 }
 
 protocol HistoryInteractorOutputProtocol: class
 {
+    func translates(translations:[TranslateEtities]) 
+    
     /**
      * Add here your methods for communication INTERACTOR -> PRESENTER
      */
@@ -47,4 +54,6 @@ protocol HistoryInteractorInputProtocol: class
     /**
      * Add here your methods for communication PRESENTER -> INTERACTOR
      */
+    func fetchSavedTranslates()
+    
 }

@@ -9,11 +9,18 @@
 import Foundation
 
 class HistoryPresenter: HistoryPresenterProtocol, HistoryInteractorOutputProtocol {
-    
+
     var view: HistoryViewProtocol?
     var interactor: HistoryInteractorInputProtocol?
     var router: HistoryRouterProtocol?
     
-    init() {}
+    func takeCountObjectsInDataBase() {
+        interactor!.fetchSavedTranslates()
+    }
+    
+    func translates(translations: [TranslateEtities]) {
+        view?.showTranslates(translations: translations)
+    }
+    
     
 }

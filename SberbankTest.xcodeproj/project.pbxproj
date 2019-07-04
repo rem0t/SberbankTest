@@ -13,7 +13,6 @@
 		3152540822CCC00A000F6A8C /* SberbankTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3152540622CCC00A000F6A8C /* SberbankTest.xcdatamodeld */; };
 		3152540A22CCC00B000F6A8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3152540922CCC00B000F6A8C /* Assets.xcassets */; };
 		3152540D22CCC00B000F6A8C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3152540B22CCC00B000F6A8C /* LaunchScreen.storyboard */; };
-		3152541A22CCC9F4000F6A8C /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3152541922CCC9F4000F6A8C /* MainTabBarController.swift */; };
 		3152541E22CCD0EE000F6A8C /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3152541D22CCD0EE000F6A8C /* HistoryViewController.swift */; };
 		3152542122CCD25D000F6A8C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3152542022CCD25D000F6A8C /* SettingsViewController.swift */; };
 		3152542322CCDCA2000F6A8C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3152542222CCDCA2000F6A8C /* Extensions.swift */; };
@@ -37,6 +36,10 @@
 		3152546222CD2DF9000F6A8C /* SettingsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3152546122CD2DF9000F6A8C /* SettingsProtocols.swift */; };
 		3152546422CD2E6D000F6A8C /* SettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3152546322CD2E6D000F6A8C /* SettingsInteractor.swift */; };
 		3152546622CD2E7E000F6A8C /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3152546522CD2E7E000F6A8C /* SettingsPresenter.swift */; };
+		3152546922CD5038000F6A8C /* TextResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3152546822CD5038000F6A8C /* TextResponse.swift */; };
+		3152546B22CD50C5000F6A8C /* Entities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3152546A22CD50C5000F6A8C /* Entities.swift */; };
+		3152546D22CE8484000F6A8C /* CoreDataContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3152546C22CE8484000F6A8C /* CoreDataContainer.swift */; };
+		3152546F22CEB4DB000F6A8C /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3152546E22CEB4DB000F6A8C /* HistoryCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,7 +51,6 @@
 		3152540922CCC00B000F6A8C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3152540C22CCC00B000F6A8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3152540E22CCC00B000F6A8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3152541922CCC9F4000F6A8C /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		3152541D22CCD0EE000F6A8C /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		3152542022CCD25D000F6A8C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		3152542222CCDCA2000F6A8C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -72,6 +74,10 @@
 		3152546122CD2DF9000F6A8C /* SettingsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsProtocols.swift; sourceTree = "<group>"; };
 		3152546322CD2E6D000F6A8C /* SettingsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInteractor.swift; sourceTree = "<group>"; };
 		3152546522CD2E7E000F6A8C /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
+		3152546822CD5038000F6A8C /* TextResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextResponse.swift; sourceTree = "<group>"; };
+		3152546A22CD50C5000F6A8C /* Entities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entities.swift; sourceTree = "<group>"; };
+		3152546C22CE8484000F6A8C /* CoreDataContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataContainer.swift; sourceTree = "<group>"; };
+		3152546E22CEB4DB000F6A8C /* HistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,9 +120,10 @@
 		3152541422CCC7E8000F6A8C /* ApplicationLayer */ = {
 			isa = PBXGroup;
 			children = (
+				3152546C22CE8484000F6A8C /* CoreDataContainer.swift */,
+				3152542222CCDCA2000F6A8C /* Extensions.swift */,
 				3152541622CCC831000F6A8C /* Assemblies */,
 				3152541522CCC7F9000F6A8C /* LaunchSystem */,
-				3152542222CCDCA2000F6A8C /* Extensions.swift */,
 			);
 			path = ApplicationLayer;
 			sourceTree = "<group>";
@@ -204,12 +211,13 @@
 			path = RootRouter;
 			sourceTree = "<group>";
 		};
-		3152542922CCE454000F6A8C /* Protocol */ = {
+		3152542922CCE454000F6A8C /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				3152544922CD107F000F6A8C /* TabBarProtocols.swift */,
 				3152542A22CCE487000F6A8C /* MainTabBarProtocol.swift */,
 			);
-			path = Protocol;
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		3152542C22CCE634000F6A8C /* View */ = {
@@ -271,6 +279,7 @@
 		3152543322CCE766000F6A8C /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
+				3152546722CD4F8E000F6A8C /* Entities */,
 				3152545522CD1ECE000F6A8C /* TranslateInteractor.swift */,
 			);
 			path = Interactor;
@@ -304,6 +313,7 @@
 			isa = PBXGroup;
 			children = (
 				3152541D22CCD0EE000F6A8C /* HistoryViewController.swift */,
+				3152546E22CEB4DB000F6A8C /* HistoryCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -311,14 +321,12 @@
 		3152544422CD0BF9000F6A8C /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
-				3152542922CCE454000F6A8C /* Protocol */,
-				3152542622CCE1DA000F6A8C /* RootRouter */,
-				3152541922CCC9F4000F6A8C /* MainTabBarController.swift */,
-				3152544922CD107F000F6A8C /* TabBarProtocols.swift */,
 				3152545422CD150F000F6A8C /* View */,
-				3152545322CD1508000F6A8C /* Router */,
+				3152542922CCE454000F6A8C /* Protocols */,
 				3152545222CD1500000F6A8C /* Presenter */,
 				3152545122CD14F7000F6A8C /* Interactor */,
+				3152542622CCE1DA000F6A8C /* RootRouter */,
+				3152545322CD1508000F6A8C /* Router */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -353,6 +361,15 @@
 				3152544B22CD1217000F6A8C /* TabBarView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		3152546722CD4F8E000F6A8C /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				3152546822CD5038000F6A8C /* TextResponse.swift */,
+				3152546A22CD50C5000F6A8C /* Entities.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -430,8 +447,9 @@
 				3152540222CCC00A000F6A8C /* TranslateViewController.swift in Sources */,
 				3152540022CCC00A000F6A8C /* AppDelegate.swift in Sources */,
 				3152545A22CD1F91000F6A8C /* TranslateProtocols.swift in Sources */,
-				3152541A22CCC9F4000F6A8C /* MainTabBarController.swift in Sources */,
+				3152546922CD5038000F6A8C /* TextResponse.swift in Sources */,
 				3152543B22CCEAB4000F6A8C /* TranslateRouter.swift in Sources */,
+				3152546D22CE8484000F6A8C /* CoreDataContainer.swift in Sources */,
 				3152541E22CCD0EE000F6A8C /* HistoryViewController.swift in Sources */,
 				3152546022CD2512000F6A8C /* HistoryProtocols.swift in Sources */,
 				3152544E22CD12F1000F6A8C /* TabBarPresenter.swift in Sources */,
@@ -443,11 +461,13 @@
 				3152544A22CD107F000F6A8C /* TabBarProtocols.swift in Sources */,
 				3152545822CD1EE9000F6A8C /* TranslatePresenter.swift in Sources */,
 				3152545E22CD24B3000F6A8C /* HistoryInteractor.swift in Sources */,
+				3152546B22CD50C5000F6A8C /* Entities.swift in Sources */,
 				3152542122CCD25D000F6A8C /* SettingsViewController.swift in Sources */,
 				3152543D22CD0798000F6A8C /* HistoryRouter.swift in Sources */,
 				3152545C22CD249F000F6A8C /* HistoryPresenter.swift in Sources */,
 				3152546222CD2DF9000F6A8C /* SettingsProtocols.swift in Sources */,
 				3152545622CD1ECE000F6A8C /* TranslateInteractor.swift in Sources */,
+				3152546F22CEB4DB000F6A8C /* HistoryCell.swift in Sources */,
 				3152542322CCDCA2000F6A8C /* Extensions.swift in Sources */,
 				3152544C22CD1217000F6A8C /* TabBarView.swift in Sources */,
 				3152544122CD08C4000F6A8C /* SettingsRouter.swift in Sources */,

@@ -9,11 +9,18 @@
 import Foundation
 
 class TranslatePresenter: TranslatePresenterProtocol, TranslateInteractorOutputProtocol {
-   
+
     var view: TranslateViewProtocol?
     var interactor: TranslateInteractorInputProtocol?
     var router: TranslateRouterProtocol?
 
-    init() {}
+    
+    func translateText(text: String) {
+        interactor!.makeTranslateText(text: text)
+    }
+    
+    func translateTextHasCome(text: String) {
+        view!.showTranslatedText(text: text)
+    }
 
 }

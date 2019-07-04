@@ -12,8 +12,7 @@ import UIKit
 class HistoryRouter: HistoryRouterProtocol, MainTabBarProtocol {
   
     var tabIcon: UIImage = #imageLiteral(resourceName: "text-list")
-    var tabTitle: String = "History"
-    
+    var tabTitle: String = ""
     
     static func presentHistoryModule(fromView view: AnyObject) {
         

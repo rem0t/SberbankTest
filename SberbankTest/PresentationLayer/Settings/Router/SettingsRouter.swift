@@ -13,7 +13,7 @@ class SettingsRouter: SettingsRouterProtocol, MainTabBarProtocol {
 
     
     var tabIcon: UIImage = #imageLiteral(resourceName: "sun")
-    var tabTitle: String = "Settings"
+    var tabTitle: String = ""
     
     static func presentSettingsModule(fromView view: AnyObject) {
         

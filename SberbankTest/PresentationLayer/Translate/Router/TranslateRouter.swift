@@ -12,7 +12,7 @@ import UIKit
 class TranslateRouter: TranslateRouterProtocol, MainTabBarProtocol {
 
     var tabIcon: UIImage = #imageLiteral(resourceName: "text")
-    var tabTitle: String = "Translate"
+    var tabTitle: String = ""
     
     static func presentTranslateModule(fromView view: AnyObject) {
         

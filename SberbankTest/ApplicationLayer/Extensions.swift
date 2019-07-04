@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 
-
 extension UITabBarController {
     
     func createNavigationController(vc: UIViewController, selecredImage: UIImage, unselectedImage: UIImage) -> UINavigationController {
@@ -21,4 +20,17 @@ extension UITabBarController {
         return navController
     }
     
+}
+
+extension LanguageCode {
+    func getNameFor() -> String {
+        switch self {
+        case .ru:
+            return "Русский"
+        case .en:
+            return "Aнглийский"
+        case .be:
+            return "Белорусский"
+        }
+    }
 }

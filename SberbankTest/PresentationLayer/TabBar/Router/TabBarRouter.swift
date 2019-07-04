@@ -41,7 +41,7 @@ class TabBarRouter: TabBarRouterProtocol {
             let viewController = router.configureViewcontroller()
             let navigationController = UINavigationController(rootViewController: viewController)
             navigationController.tabBarItem = tabBarItem
-            navigationController.setNavigationBarHidden(false, animated: false)
+            navigationController.setNavigationBarHidden(true, animated: false)
             navigationController.title = router.tabTitle
             viewControllers.append(navigationController)
         }
