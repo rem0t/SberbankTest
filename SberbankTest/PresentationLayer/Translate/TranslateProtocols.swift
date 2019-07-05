@@ -17,7 +17,6 @@ protocol TranslateViewProtocol: class
     
     func showTranslatedText(text:String)
     
-    
 }
 
 protocol TranslateRouterProtocol: class
@@ -34,8 +33,7 @@ protocol TranslatePresenterProtocol: class
     var interactor: TranslateInteractorInputProtocol? { get set }
     var router: TranslateRouterProtocol? { get set }
   
-    func translateText(text:String)
-
+    func translateText(text:String, textCode:String)
     
 }
 
@@ -53,7 +51,7 @@ protocol TranslateInteractorInputProtocol: class
 {
     var presenter: TranslateInteractorOutputProtocol? { get set }
     
-    func makeTranslateText(text:String)
+    func makeTranslateText(text: String, textCode: String)
 
     
 }

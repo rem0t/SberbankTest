@@ -11,19 +11,18 @@ import CoreData
 
 class HistoryInteractor: HistoryInteractorInputProtocol
 {
-
+    
     weak var presenter: HistoryInteractorOutputProtocol?
     
     func fetchSavedTranslates() {
         presenter?.translates(translations: fetchTranslations())
     }
     
-    
     func fetchTranslations() -> [TranslateEtities] {
         let managedContext = CoreDataContainer().persistentContainer.viewContext
-        let fetchReauest = NSFetchRequest<NSManagedObject>(entityName: "Translate")
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Translate")
         
-        let fetchTranslations = try! managedContext.fetch(fetchReauest)
+        let fetchTranslations = try! managedContext.fetch(fetchRequest)
         
         var objects = [TranslateEtities]()
         
@@ -37,5 +36,29 @@ class HistoryInteractor: HistoryInteractorInputProtocol
         return(objects)
     }
     
+    func deleteHistoryInDataBase() {
+        
+        let managedContext = CoreDataContainer().persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Translate")
+        
+        fetchRequest.returnsObjectsAsFaults = false
+        do {
+            let results = try managedContext.fetch(fetchRequest)
+            for object in results {
+                managedContext.delete(object)
+            }
+            print("Detele comlition ")
+            presenter?.allDataDeleted()
+        } catch let error {
+            print("Detele error :", error)
+            presenter?.errorDataDeleted(textError: error.localizedDescription)
+        }
+        
+        do {
+            try managedContext.save()
+        } catch {
+            print("Save error :", error)
+        }
+    }
     
 }

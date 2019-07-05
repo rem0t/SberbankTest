@@ -13,11 +13,3 @@ struct TranslateEtities: Codable {
     var translation: String
     var lang: String
 }
-
-enum LanguageCode: String,CaseIterable {
-    case ru
-    case en
-    case be
-}
-
-

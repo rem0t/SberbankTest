@@ -22,5 +22,17 @@ class HistoryPresenter: HistoryPresenterProtocol, HistoryInteractorOutputProtoco
         view?.showTranslates(translations: translations)
     }
     
+    func deleteHistory() {
+        interactor!.deleteHistoryInDataBase()
+    }
+    
+    func allDataDeleted() {
+        view?.updateTableView()
+    }
+    
+    func errorDataDeleted(textError: String) {
+        view?.showAllertWithMessadge(text: textError)
+    }
+    
     
 }

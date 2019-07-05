@@ -11,7 +11,6 @@ import CoreData
 
 class TranslateInteractor: TranslateInteractorInputProtocol
 {
-
     
     weak var presenter: TranslateInteractorOutputProtocol?
     
@@ -20,24 +19,36 @@ class TranslateInteractor: TranslateInteractorInputProtocol
     
     // MARK: - Protocol methods input
     
-    func makeTranslateText(text: String) {
-        requestWith(text: text, lang: "en") { result in
-            switch result {
-            case .success(result: let result):
-                DispatchQueue.main.async() {
-                    self.presenter?.translateTextHasCome(text: result.text.first!)
-                    self.saveToCoreData(text: text, lang: "en", translate: result.text.first!)
-                 }
-                
-            case .failure(let error):
-                
-                print("ERROR ", error.localizedDescription)
-                
+    func makeTranslateText(text: String, textCode: String) {
+        
+        if text == "" { // добавить проверку на пустое значение 
+            return
+        }
+        
+        if let savedTranslate = fetchObjectBy(word: text) {
+            self.presenter?.translateTextHasCome(text: savedTranslate.translation)
+        } else {
+ 
+            let codeLang = translation(textCode: textCode)
+            
+            requestWith(text: text, lang: codeLang) { result in
+                switch result {
+                case .success(result: let result):
+                    DispatchQueue.main.async() {
+                        self.presenter?.translateTextHasCome(text: result.text.first!)
+                        self.saveToCoreData(text: text, lang: codeLang, translate: result.text.first!)
+                    }
+                    
+                case .failure(let error):
+                    
+                    print("ERROR ", error.localizedDescription)
+                    
+                }
             }
+            
         }
     }
-    
-    
+  
     // MARK: - Requests
     
     func requestWith(text:String, lang:String, completion: @escaping (ResultResponse<TextResponse, Error>)-> Void)  {
@@ -106,7 +117,7 @@ class TranslateInteractor: TranslateInteractorInputProtocol
     func fetchObjectBy(word: String) -> TranslateEtities? {
         let managedContext = CoreDataContainer().persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Translate")
-        fetchRequest.predicate = NSPredicate(format: "text == %@", word)
+        fetchRequest.predicate = NSPredicate(format: "textTranslated == %@", word)
         
         guard let fetchedTranslations = try?  managedContext.fetch(fetchRequest) else {
             return nil
@@ -122,6 +133,23 @@ class TranslateInteractor: TranslateInteractorInputProtocol
             objects.append(transletedText)
         }
         return(objects.first)
+    }
+    
+    // MARK: - Helpers
+    
+    func translation(textCode: String) -> String { // bad
+        
+        var str = ""
+        
+        if textCode == "Русский" {
+            str = "ru"
+        } else if textCode == "English" {
+            str = "en"
+        } else if textCode == "Белорусский" {
+            str = "be"
+        }
+        
+        return str
     }
     
     

@@ -23,7 +23,9 @@ class TranslateViewController: UIViewController, UITextViewDelegate, TranslateVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
- 
+        
+        navigationController?.setNavigationBarHidden(true, animated: false)
+
         buttonConfiguration()
         textViewConfiguration()
     }
@@ -34,24 +36,32 @@ class TranslateViewController: UIViewController, UITextViewDelegate, TranslateVi
         translatedTextView.text = text
     }
     
-    
     // MARK: - TextView configuration
-    
-    // FIXME: - make PlaseHolder 
     
     func textViewConfiguration() {
         
         translationTextview.delegate = self
         
+        translationTextview.text = "Введите текст"
+        translationTextview.textColor = UIColor.lightGray
+        
     }
     
-    // MARK: - Delegate methods
+    // MARK: - TextView Delegate methods
     
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.lightGray {
+            textView.text = nil
+            textView.textColor = UIColor.black
+        }
+    }
     
     func textViewDidEndEditing(_ textView: UITextView) {
-        presenter?.translateText(text: textView.text)
+        
+        let textCode = secondLanguageButton.titleLabel?.text
+
+        presenter?.translateText(text: textView.text, textCode: textCode!)
     }
-    
     
     // MARK: - Buttons configuration
     
@@ -60,56 +70,93 @@ class TranslateViewController: UIViewController, UITextViewDelegate, TranslateVi
         arrowButton.addTarget(self, action: #selector(switchTranslationWords), for: .touchDown)
         firstLanguageButton.addTarget(self, action: #selector(changeTranslationFirst), for: .touchDown)
         secondLanguageButton.addTarget(self, action: #selector(changeTranslationSecond), for: .touchDown)
-
+        
+        arrowButton.tag = 0
+        firstLanguageButton.tag = 1
+        secondLanguageButton.tag = 2
     }
 
     // MARK: - Buttons actions
     
     @objc func switchTranslationWords() { // FIXME: - Text in buttons
         
+        swapTextInButtons()
+        
+        if translationTextview.textColor != UIColor.lightGray {
+            let from = translationTextview.text
+            let to = translatedTextView.text
+            
+            translationTextview.text = to
+            translatedTextView.text = from
+        }
+        
+    }
+    
+    func swapTextInButtons() {
         let from = firstLanguageButton.titleLabel?.text
         let to = secondLanguageButton.titleLabel?.text
         
-        firstLanguageButton.titleLabel?.text = to
-        secondLanguageButton.titleLabel?.text = from
-
+        firstLanguageButton.setTitle(to, for: .normal)
+        secondLanguageButton.setTitle(from, for: .normal)
     }
     
-    @objc func changeTranslationFirst() {
-        configActionSheet()
+    @objc func changeTranslationFirst(sender:UIButton) {
+        configActionSheet(button: sender)
     }
     
-    @objc func changeTranslationSecond() {
-        configActionSheet()
+    @objc func changeTranslationSecond(sender:UIButton) {
+        configActionSheet(button: sender)
     }
     
     // MARK: - Action Sheet
     
-    func configActionSheet() {
+    func configActionSheet(button:UIButton) {
         
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
-        let sendButton = UIAlertAction(title: "Русский", style: .default, handler: { (action) -> Void in
-            print("Русский button tapped")
+        let rusButton = UIAlertAction(title: "Русский", style: .default, handler: { (action) -> Void in
+            self.translationChangeLogic(text: "Русский", buttonTag: button.tag)
         })
         
-        let  deleteButton = UIAlertAction(title: "English", style: .default, handler: { (action) -> Void in
-            print("English button tapped")
+        let enButton = UIAlertAction(title: "English", style: .default, handler: { (action) -> Void in
+            self.translationChangeLogic(text: "English", buttonTag: button.tag)
         })
         
-        let cancelButton = UIAlertAction(title: "Белорусский", style: .default, handler: { (action) -> Void in
-            print("Белорусский button tapped")
+        let beButton = UIAlertAction(title: "Белорусский", style: .default, handler: { (action) -> Void in
+            self.translationChangeLogic(text: "Белорусский", buttonTag: button.tag)
         })
  
-        alertController.addAction(sendButton)
-        alertController.addAction(deleteButton)
-        alertController.addAction(cancelButton)
+        let cancel = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
         
-        self.navigationController!.present(alertController, animated: true, completion: nil)
+        alertController.addAction(rusButton)
+        alertController.addAction(enButton)
+        alertController.addAction(beButton)
+        alertController.addAction(cancel)
+
+        self.present(alertController, animated: true, completion: nil)
         
     }
 
-    
+    func translationChangeLogic(text: String , buttonTag: Int) {
+        
+        if buttonTag == 1 {
+            
+            if text == secondLanguageButton.titleLabel?.text {
+                swapTextInButtons()
+            } else {
+                firstLanguageButton.setTitle(text, for: .normal)
+            }
+            
+        } else if buttonTag == 2 {
+            if text == firstLanguageButton.titleLabel?.text {
+                swapTextInButtons()
+            } else {
+                secondLanguageButton.setTitle(text, for: .normal)
+            }
+            
+        }
+        
+    }
     
 
 }

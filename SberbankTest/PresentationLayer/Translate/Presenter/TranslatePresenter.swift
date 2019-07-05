@@ -15,9 +15,9 @@ class TranslatePresenter: TranslatePresenterProtocol, TranslateInteractorOutputP
     var router: TranslateRouterProtocol?
 
     
-    func translateText(text: String) {
-        interactor!.makeTranslateText(text: text)
-    }
+    func translateText(text: String, textCode: String) {
+        interactor!.makeTranslateText(text: text, textCode: textCode)
+    } 
     
     func translateTextHasCome(text: String) {
         view!.showTranslatedText(text: text)

@@ -22,6 +22,12 @@ extension UITabBarController {
     
 }
 
+enum LanguageCode: String,CaseIterable {
+    case ru
+    case en
+    case be
+}
+
 extension LanguageCode {
     func getNameFor() -> String {
         switch self {
