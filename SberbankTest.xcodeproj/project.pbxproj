@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3139B99022D0981C0093FCEA /* UITabBarController+some.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3139B98F22D0981C0093FCEA /* UITabBarController+some.swift */; };
+		3139B99322D09AD80093FCEA /* TranslateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3139B99222D09AD80093FCEA /* TranslateService.swift */; };
 		3152540022CCC00A000F6A8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315253FF22CCC00A000F6A8C /* AppDelegate.swift */; };
 		3152540222CCC00A000F6A8C /* TranslateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3152540122CCC00A000F6A8C /* TranslateViewController.swift */; };
 		3152540522CCC00A000F6A8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3152540322CCC00A000F6A8C /* Main.storyboard */; };
@@ -43,6 +45,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3139B98F22D0981C0093FCEA /* UITabBarController+some.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+some.swift"; sourceTree = "<group>"; };
+		3139B99222D09AD80093FCEA /* TranslateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateService.swift; sourceTree = "<group>"; };
 		315253FC22CCC00A000F6A8C /* SberbankTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SberbankTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		315253FF22CCC00A000F6A8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3152540122CCC00A000F6A8C /* TranslateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +95,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3139B99122D098AC0093FCEA /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				3139B99222D09AD80093FCEA /* TranslateService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		315253F322CCC00A000F6A8C = {
 			isa = PBXGroup;
 			children = (
@@ -120,10 +132,12 @@
 		3152541422CCC7E8000F6A8C /* ApplicationLayer */ = {
 			isa = PBXGroup;
 			children = (
+				3139B99122D098AC0093FCEA /* Services */,
 				3152546C22CE8484000F6A8C /* CoreDataContainer.swift */,
 				3152542222CCDCA2000F6A8C /* Extensions.swift */,
 				3152541622CCC831000F6A8C /* Assemblies */,
 				3152541522CCC7F9000F6A8C /* LaunchSystem */,
+				3139B98F22D0981C0093FCEA /* UITabBarController+some.swift */,
 			);
 			path = ApplicationLayer;
 			sourceTree = "<group>";
@@ -459,11 +473,13 @@
 				3152542B22CCE487000F6A8C /* MainTabBarProtocol.swift in Sources */,
 				3152540822CCC00A000F6A8C /* SberbankTest.xcdatamodeld in Sources */,
 				3152544A22CD107F000F6A8C /* TabBarProtocols.swift in Sources */,
+				3139B99322D09AD80093FCEA /* TranslateService.swift in Sources */,
 				3152545822CD1EE9000F6A8C /* TranslatePresenter.swift in Sources */,
 				3152545E22CD24B3000F6A8C /* HistoryInteractor.swift in Sources */,
 				3152546B22CD50C5000F6A8C /* Entities.swift in Sources */,
 				3152542122CCD25D000F6A8C /* SettingsViewController.swift in Sources */,
 				3152543D22CD0798000F6A8C /* HistoryRouter.swift in Sources */,
+				3139B99022D0981C0093FCEA /* UITabBarController+some.swift in Sources */,
 				3152545C22CD249F000F6A8C /* HistoryPresenter.swift in Sources */,
 				3152546222CD2DF9000F6A8C /* SettingsProtocols.swift in Sources */,
 				3152545622CD1ECE000F6A8C /* TranslateInteractor.swift in Sources */,

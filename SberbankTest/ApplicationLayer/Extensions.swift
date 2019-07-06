@@ -6,23 +6,9 @@
 //  Copyright © 2019 Влад Калаев. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
-extension UITabBarController {
-    
-    func createNavigationController(vc: UIViewController, selecredImage: UIImage, unselectedImage: UIImage) -> UINavigationController {
-        
-        let viewController = vc
-        let navController = UINavigationController(rootViewController: viewController)
-        navController.tabBarItem.image = unselectedImage
-        navigationController?.tabBarItem.selectedImage = selecredImage
-        return navController
-    }
-    
-}
-
-enum LanguageCode: String,CaseIterable {
+enum LanguageCode: String, CaseIterable {
     case ru
     case en
     case be

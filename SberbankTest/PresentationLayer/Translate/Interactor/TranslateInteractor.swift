@@ -14,7 +14,9 @@ class TranslateInteractor: TranslateInteractorInputProtocol
     
     weak var presenter: TranslateInteractorOutputProtocol?
     
-    let requestURL = "https://translate.yandex.net/api/v1.5/tr.json/translate"
+    let translateService = TranslateService()
+    
+    let translateLink = "https://translate.yandex.net/api/v1.5/tr.json/translate"
     let key = "trnsl.1.1.20190703T105527Z.7bf7579761c4a16b.4ce902ca682e013bc5614063f9a2c56688cf0d65"
     
     // MARK: - Protocol methods input
@@ -51,9 +53,9 @@ class TranslateInteractor: TranslateInteractorInputProtocol
   
     // MARK: - Requests
     
-    func requestWith(text:String, lang:String, completion: @escaping (ResultResponse<TextResponse, Error>)-> Void)  {
+    func requestWith(text: String, lang: String, completion: @escaping (ResultResponse<TextResponse, Error>)-> Void)  {
         
-        var urlComponents = URLComponents(string:requestURL)!
+        var urlComponents = URLComponents(string: translateLink)!
         urlComponents.queryItems = [URLQueryItem(name: "key", value: key),
                                     URLQueryItem(name: "text", value: text),
                                     URLQueryItem(name: "lang", value: lang),
@@ -62,7 +64,7 @@ class TranslateInteractor: TranslateInteractorInputProtocol
         let request = URLRequest(url: urlComponents.url!)
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             
-            if  let responseError = error {
+            if  let responseError = error { // case 
                 completion(ResultResponse.failure(error: responseError))
                 return
             }
@@ -119,9 +121,7 @@ class TranslateInteractor: TranslateInteractorInputProtocol
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Translate")
         fetchRequest.predicate = NSPredicate(format: "textTranslated == %@", word)
         
-        guard let fetchedTranslations = try?  managedContext.fetch(fetchRequest) else {
-            return nil
-        }
+        guard let fetchedTranslations = try? managedContext.fetch(fetchRequest) else { return nil }
         
         var objects = [TranslateEtities]()
         

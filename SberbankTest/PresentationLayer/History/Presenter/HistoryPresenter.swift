@@ -15,7 +15,7 @@ class HistoryPresenter: HistoryPresenterProtocol, HistoryInteractorOutputProtoco
     var router: HistoryRouterProtocol?
     
     func takeCountObjectsInDataBase() {
-        interactor!.fetchSavedTranslates()
+        interactor?.fetchSavedTranslates()
     }
     
     func translates(translations: [TranslateEtities]) {
@@ -23,7 +23,7 @@ class HistoryPresenter: HistoryPresenterProtocol, HistoryInteractorOutputProtoco
     }
     
     func deleteHistory() {
-        interactor!.deleteHistoryInDataBase()
+        interactor?.deleteHistoryInDataBase()
     }
     
     func allDataDeleted() {

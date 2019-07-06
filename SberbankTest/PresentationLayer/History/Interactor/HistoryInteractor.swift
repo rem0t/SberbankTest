@@ -22,15 +22,19 @@ class HistoryInteractor: HistoryInteractorInputProtocol
         let managedContext = CoreDataContainer().persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Translate")
         
-        let fetchTranslations = try! managedContext.fetch(fetchRequest)
-        
+        guard let fetchTranslations = try? managedContext.fetch(fetchRequest) else {
+            print("")
+            return []
+        }
         var objects = [TranslateEtities]()
         
         for object in fetchTranslations {
-            let text = object.value(forKey: "language") as! String
-            let lang = object.value(forKey: "textTranslated") as! String
-            let translate = object.value(forKey: "textTranslation") as! String
-            let transletedText = TranslateEtities(name: text, translation: translate, lang: lang)
+            let text = object.value(forKey: "language") as? String
+            let lang = object.value(forKey: "textTranslated") as? String
+            let translate = object.value(forKey: "textTranslation") as? String
+            let transletedText = TranslateEtities(name: text ?? "",
+                                                  translation: translate ?? "",
+                                                  lang: lang ?? "")
             objects.append(transletedText)
         }
         return(objects)
