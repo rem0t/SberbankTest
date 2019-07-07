@@ -16,11 +16,11 @@ class TranslatePresenter: TranslatePresenterProtocol, TranslateInteractorOutputP
 
     
     func translateText(text: String, textCode: String) {
-        interactor!.makeTranslateText(text: text, textCode: textCode)
+        interactor?.makeTranslateText(text: text, textCode: textCode)
     } 
     
     func translateTextHasCome(text: String) {
-        view!.showTranslatedText(text: text)
+        view?.showTranslatedText(text: text)
     }
 
 }

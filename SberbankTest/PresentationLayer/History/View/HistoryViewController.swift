@@ -9,7 +9,7 @@
 import UIKit
 
 class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchControllerDelegate, UISearchResultsUpdating, HistoryViewProtocol {
-
+    
     var presenter: HistoryPresenterProtocol?
     
     var translations = [TranslateEtities]()
@@ -25,7 +25,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         presenter?.takeCountObjectsInDataBase()
         configurationNavigationBar()
     }
- 
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -57,23 +57,24 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         trash.tintColor = UIColor.black
         
         self.navigationItem.rightBarButtonItem = trash
-
+        
     }
-
+    
     // MARK: - Search Controller
     
     func updateSearchResults(for searchController: UISearchController) {
-        filterContentForSearchText(searchController.searchBar.text!)
+        filterContentForSearchText(searchController.searchBar.text ?? String())
     }
     
     func filterContentForSearchText(_ searchText: String, scope: String = "All") {
-        filteredTranslations = translations.filter({( transalte : TranslateEtities) -> Bool in
-            return transalte.translation.lowercased().contains(searchText.lowercased())
+
+        filteredTranslations = translations.filter({ (transalte : TranslateEtities) -> Bool in
+            return transalte.lang.lowercased().contains(searchText.lowercased()) || transalte.translation.lowercased().contains(searchText.lowercased())
         })
         
         tableView.reloadData()
     }
-
+    
     func searchBarIsEmpty() -> Bool {
         return seacrh.searchBar.text?.isEmpty ?? true
     }
@@ -95,7 +96,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.reloadData()
     }
     
-    func showAllertWithMessadge(text: String) {
+    func showAllertWithMessedge(text: String) {
         let alertErrorCoreData = UIAlertController(title: "Внимание", message: text, preferredStyle: .alert)
         alertErrorCoreData.addAction(UIAlertAction(title: "ок", style: .default))
         self.present(alertErrorCoreData, animated: true, completion: nil)
@@ -103,7 +104,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     // MARK: - Table View
-
+    
     func tableViewConfiguration() {
         
         tableView.dataSource = self
@@ -114,9 +115,9 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     // MARK: - Delegate methods Table View
- 
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       
+        
         if isFiltering() {
             return filteredTranslations.count
         }
@@ -125,7 +126,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-                
+        
         let word:TranslateEtities
         
         if isFiltering() {
@@ -134,12 +135,12 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
             word = translations[indexPath.row]
         }
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! HistoryCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? HistoryCell
         
-        cell.leftText.text = word.lang
-        cell.rightText.text = word.translation
+        cell?.leftText.text = word.lang
+        cell?.rightText.text = word.translation
         
-        return cell
+        return cell ?? HistoryCell()
     }
     
     // MARK: - Helpers
@@ -147,10 +148,12 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     @objc func trashAllHistory() {
         
         let alertController = UIAlertController(title: "Внимание", message: "Вы уверены что хотите удалить историю переводов ?", preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "👌🏻", style: .default, handler: { (action) in
+        
+        alertController.addAction(UIAlertAction(title: "Нет", style: .default))
+        
+        alertController.addAction(UIAlertAction(title: "Да", style: .default, handler: { (action) in
             self.presenter?.deleteHistory()
         }))
-        alertController.addAction(UIAlertAction(title: "❌", style: .default))
         
         self.present(alertController, animated: true, completion: nil)
         

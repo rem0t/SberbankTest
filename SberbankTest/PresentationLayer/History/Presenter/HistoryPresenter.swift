@@ -31,7 +31,7 @@ class HistoryPresenter: HistoryPresenterProtocol, HistoryInteractorOutputProtoco
     }
     
     func errorDataDeleted(textError: String) {
-        view?.showAllertWithMessadge(text: textError)
+        view?.showAllertWithMessedge(text: textError)
     }
     
     

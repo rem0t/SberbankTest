@@ -37,8 +37,8 @@ class TranslateInteractor: TranslateInteractorInputProtocol
                 switch result {
                 case .success(result: let result):
                     DispatchQueue.main.async() {
-                        self.presenter?.translateTextHasCome(text: result.text.first!)
-                        self.saveToCoreData(text: text, lang: codeLang, translate: result.text.first!)
+                        self.presenter?.translateTextHasCome(text: result.text.first ?? String())
+                        self.saveToCoreData(text: text, lang: codeLang, translate: result.text.first ?? String())
                     }
                     
                 case .failure(let error):
@@ -55,13 +55,13 @@ class TranslateInteractor: TranslateInteractorInputProtocol
     
     func requestWith(text: String, lang: String, completion: @escaping (ResultResponse<TextResponse, Error>)-> Void)  {
         
-        var urlComponents = URLComponents(string: translateLink)!
-        urlComponents.queryItems = [URLQueryItem(name: "key", value: key),
+        var urlComponents = URLComponents(string: translateLink)
+        urlComponents?.queryItems = [URLQueryItem(name: "key", value: key),
                                     URLQueryItem(name: "text", value: text),
                                     URLQueryItem(name: "lang", value: lang),
                                     URLQueryItem(name: "format", value: "plain")]
         
-        let request = URLRequest(url: urlComponents.url!)
+        let request = URLRequest(url: (urlComponents?.url)!) // FIXME
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             
             if  let responseError = error { // case 
@@ -69,15 +69,15 @@ class TranslateInteractor: TranslateInteractorInputProtocol
                 return
             }
             
-            guard let httpResponse = response as? HTTPURLResponse else {
-                completion(ResultResponse.failure(error: NetworkError.connectionError))
-                return
-            }
+//            guard let httpResponse = response as? HTTPURLResponse else {
+//                completion(ResultResponse.failure(error: NetworkError.connectionError))
+//                return
+//            }
             
-            guard (200...299).contains(httpResponse.statusCode) else {
-                completion(ResultResponse.failure(error: NetworkError.getErrorFor(statusCode: httpResponse.statusCode)!))
-                return
-            }
+//            guard (200...299).contains(httpResponse.statusCode) else {
+//                completion(ResultResponse.failure(error: NetworkError.getErrorFor(statusCode: httpResponse.statusCode)))
+//                return
+//            }
             
             guard let recievedData = data else {
                 completion(ResultResponse.failure(error: NetworkError.invalidData))
@@ -101,9 +101,9 @@ class TranslateInteractor: TranslateInteractorInputProtocol
     func saveToCoreData(text: String, lang: String, translate: String) {
         
         let managedContext = CoreDataContainer().persistentContainer.viewContext
-        let entitie = NSEntityDescription.entity(forEntityName: "Translate", in: managedContext)!
+        let entitie = NSEntityDescription.entity(forEntityName: "Translate", in: managedContext)
         
-        let translation = NSManagedObject(entity: entitie, insertInto: managedContext)
+        let translation = NSManagedObject(entity: entitie ?? NSEntityDescription(), insertInto: managedContext)
         translation.setValue(lang, forKey: "language")
         translation.setValue(text, forKey: "textTranslated")
         translation.setValue(translate, forKey: "textTranslation")
@@ -126,10 +126,10 @@ class TranslateInteractor: TranslateInteractorInputProtocol
         var objects = [TranslateEtities]()
         
         for object in fetchedTranslations {
-            let text = object.value(forKey: "language") as! String
-            let lang = object.value(forKey: "textTranslated") as! String
-            let translate = object.value(forKey: "textTranslation") as! String
-            let transletedText = TranslateEtities(name: text, translation: translate, lang: lang)
+            let text = object.value(forKey: "language") as? String
+            let lang = object.value(forKey: "textTranslated") as? String
+            let translate = object.value(forKey: "textTranslation") as? String
+            let transletedText = TranslateEtities(name: text ?? String(), translation: translate ?? String(), lang: lang ?? String())
             objects.append(transletedText)
         }
         return(objects.first)

@@ -56,11 +56,18 @@ class TranslateViewController: UIViewController, UITextViewDelegate, TranslateVi
         }
     }
     
+    func textViewDidChange(_ textView: UITextView) {
+//        let characterset = CharacterSet(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 ")
+//        if textView.text.rangeOfCharacter(from: characterset.inverted) == nil {
+//            self.translationChangeLogic(text: "English", buttonTag: 1)
+//        }
+    }
+    
     func textViewDidEndEditing(_ textView: UITextView) {
         
         let textCode = secondLanguageButton.titleLabel?.text
 
-        presenter?.translateText(text: textView.text, textCode: textCode!)
+        presenter?.translateText(text: textView.text, textCode: textCode ?? String())
     }
     
     // MARK: - Buttons configuration
@@ -78,7 +85,7 @@ class TranslateViewController: UIViewController, UITextViewDelegate, TranslateVi
 
     // MARK: - Buttons actions
     
-    @objc func switchTranslationWords() { // FIXME: - Text in buttons
+    @objc func switchTranslationWords() {
         
         swapTextInButtons()
         

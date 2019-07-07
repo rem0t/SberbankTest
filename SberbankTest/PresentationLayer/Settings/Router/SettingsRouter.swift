@@ -22,9 +22,9 @@ class SettingsRouter: SettingsRouterProtocol, MainTabBarProtocol {
         let router: SettingsRouterProtocol = SettingsRouter()
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let view: SettingsViewProtocol = storyboard.instantiateViewController(withIdentifier: "SettingsViewController") as! SettingsViewController
+        let view = storyboard.instantiateViewController(withIdentifier: "SettingsViewController") as? SettingsViewController
         
-        view.presenter = presenter
+        view?.presenter = presenter
         presenter.view = view
         presenter.router = router
         presenter.interactor = interactor
@@ -39,15 +39,15 @@ class SettingsRouter: SettingsRouterProtocol, MainTabBarProtocol {
         let router: SettingsRouterProtocol = SettingsRouter()
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let view: SettingsViewProtocol = storyboard.instantiateViewController(withIdentifier: "SettingsViewController") as! SettingsViewController
+        let view = storyboard.instantiateViewController(withIdentifier: "SettingsViewController") as? SettingsViewController
         
-        view.presenter = presenter
+        view?.presenter = presenter
         presenter.view = view
         presenter.router = router
         presenter.interactor = interactor
         interactor.presenter = presenter
         
-        return view as! UIViewController
+        return view ?? UIViewController()
         
     }
     

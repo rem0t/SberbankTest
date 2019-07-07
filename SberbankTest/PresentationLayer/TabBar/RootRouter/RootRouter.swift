@@ -23,18 +23,17 @@ class RootRouter: NSObject {
         
         var routers = [MainTabBarProtocol]()
         
-        let translateLayer: TranslateRouterProtocol = TranslateRouter()
-        routers.append(translateLayer as! MainTabBarProtocol)
+        let translateLayer = TranslateRouter()
+        routers.append(translateLayer)
         
-        let historyLayer: HistoryRouterProtocol = HistoryRouter()
-        routers.append(historyLayer as! MainTabBarProtocol)
+        let historyLayer = HistoryRouter()
+        routers.append(historyLayer)
         
-        let settingsLayer: SettingsRouterProtocol = SettingsRouter()
-        routers.append(settingsLayer as! MainTabBarProtocol)
+        let settingsLayer = SettingsRouter()
+        routers.append(settingsLayer)
         
         tabBarModule = TabBarRouter.installIntoWindow(rootRouter: self, window: window, routers: routers)
         
     }
-    
     
 }

@@ -14,16 +14,16 @@ class TranslateRouter: TranslateRouterProtocol, MainTabBarProtocol {
     var tabIcon: UIImage = #imageLiteral(resourceName: "text")
     var tabTitle: String = ""
     
-    static func presentTranslateModule(fromView view: AnyObject) {
+    static func presentTranslateModule(from view: AnyObject) {
         
         let presenter: TranslatePresenterProtocol & TranslateInteractorOutputProtocol = TranslatePresenter()
         let interactor: TranslateInteractorInputProtocol = TranslateInteractor()
         let router: TranslateRouterProtocol = TranslateRouter()
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let view: TranslateViewProtocol = storyboard.instantiateViewController(withIdentifier: "TranslateViewController") as! TranslateViewController
+        let view = storyboard.instantiateViewController(withIdentifier: "TranslateViewController") as? TranslateViewController
         
-        view.presenter = presenter
+        view?.presenter = presenter
         presenter.view = view
         presenter.router = router
         presenter.interactor = interactor
@@ -38,15 +38,15 @@ class TranslateRouter: TranslateRouterProtocol, MainTabBarProtocol {
         let router: TranslateRouterProtocol = TranslateRouter()
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let view: TranslateViewProtocol = storyboard.instantiateViewController(withIdentifier: "TranslateViewController") as! TranslateViewController
+        let view = storyboard.instantiateViewController(withIdentifier: "TranslateViewController") as? TranslateViewController
         
-        view.presenter = presenter
+        view?.presenter = presenter
         presenter.view = view
         presenter.router = router
         presenter.interactor = interactor
         interactor.presenter = presenter
         
-        return view as! UIViewController
+        return view ?? UIViewController()
         
     }
 

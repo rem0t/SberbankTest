@@ -19,13 +19,13 @@ class TabBarRouter: TabBarRouterProtocol {
 
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        let view: TabBarViewProtocol = storyboard.instantiateInitialViewController() as! TabBarView
+        let view = storyboard.instantiateInitialViewController() as? TabBarViewProtocol 
         let presenter: TabBarPresenterProtocol & TabBarInteractorOutputProtocol = TabBarPresenter()
         let interactor: TabBarInteractorInputProtocol = TabBarInteractor()
         let router: TabBarRouterProtocol = TabBarRouter()
         
         router.rootRouter = rootRouter
-        view.presenter = presenter
+        view?.presenter = presenter
         presenter.view = view
         presenter.router = router
         presenter.interactor = interactor
@@ -41,13 +41,12 @@ class TabBarRouter: TabBarRouterProtocol {
             let viewController = router.configureViewcontroller()
             let navigationController = UINavigationController(rootViewController: viewController)
             navigationController.tabBarItem = tabBarItem
-//            navigationController.setNavigationBarHidden(true, animated: false)
             navigationController.title = router.tabTitle
             viewControllers.append(navigationController)
         }
         
-        let tabBarController = view as! UITabBarController
-        tabBarController.viewControllers = viewControllers
+        let tabBarController = view as? UITabBarController
+        tabBarController?.viewControllers = viewControllers
         window.rootViewController = tabBarController
         
         return router

@@ -21,9 +21,9 @@ class HistoryRouter: HistoryRouterProtocol, MainTabBarProtocol {
         let router: HistoryRouterProtocol = HistoryRouter()
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let view: HistoryViewProtocol = storyboard.instantiateViewController(withIdentifier: "HistoryViewController") as! HistoryViewController
+        let view = storyboard.instantiateViewController(withIdentifier: "HistoryViewController") as? HistoryViewController
         
-        view.presenter = presenter
+        view?.presenter = presenter
         presenter.view = view
         presenter.router = router
         presenter.interactor = interactor
@@ -38,15 +38,15 @@ class HistoryRouter: HistoryRouterProtocol, MainTabBarProtocol {
         let router: HistoryRouterProtocol = HistoryRouter()
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let view: HistoryViewProtocol = storyboard.instantiateViewController(withIdentifier: "HistoryViewController") as! HistoryViewController
+        let view = storyboard.instantiateViewController(withIdentifier: "HistoryViewController") as? HistoryViewController
         
-        view.presenter = presenter
+        view?.presenter = presenter
         presenter.view = view
         presenter.router = router
         presenter.interactor = interactor
         interactor.presenter = presenter
         
-        return view as! UIViewController
+        return view ?? UIViewController()
         
     }
 

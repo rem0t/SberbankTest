@@ -32,9 +32,9 @@ class HistoryInteractor: HistoryInteractorInputProtocol
             let text = object.value(forKey: "language") as? String
             let lang = object.value(forKey: "textTranslated") as? String
             let translate = object.value(forKey: "textTranslation") as? String
-            let transletedText = TranslateEtities(name: text ?? "",
-                                                  translation: translate ?? "",
-                                                  lang: lang ?? "")
+            let transletedText = TranslateEtities(name: text ?? String(),
+                                                  translation: translate ?? String(),
+                                                  lang: lang ?? String())
             objects.append(transletedText)
         }
         return(objects)

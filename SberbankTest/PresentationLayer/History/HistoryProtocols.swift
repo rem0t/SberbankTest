@@ -16,7 +16,7 @@ protocol HistoryViewProtocol: class
      */
     func showTranslates(translations:[TranslateEtities])
     func updateTableView()
-    func showAllertWithMessadge(text:String)
+    func showAllertWithMessedge(text:String)
 
 }
 
