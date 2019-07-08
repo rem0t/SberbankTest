@@ -224,33 +224,6 @@
             </objects>
             <point key="canvasLocation" x="268" y="58.920539730134934"/>
         </scene>
-        <!--Settings View Controller-->
-        <scene sceneID="nU2-fU-bH1">
-            <objects>
-                <viewController storyboardIdentifier="SettingsViewController" id="agE-WX-ObP" customClass="SettingsViewController" customModule="SberbankTest" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="FYd-Mr-CZH">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cU7-hc-vkg">
-                                <rect key="frame" x="10" y="70" width="355" height="547"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="udT-6N-BZq" firstAttribute="trailing" secondItem="cU7-hc-vkg" secondAttribute="trailing" constant="10" id="GAP-QF-o4D"/>
-                            <constraint firstItem="cU7-hc-vkg" firstAttribute="top" secondItem="udT-6N-BZq" secondAttribute="top" constant="50" id="Ka1-9w-e8q"/>
-                            <constraint firstItem="cU7-hc-vkg" firstAttribute="leading" secondItem="udT-6N-BZq" secondAttribute="leading" constant="10" id="Q6T-zp-WqG"/>
-                            <constraint firstItem="udT-6N-BZq" firstAttribute="bottom" secondItem="cU7-hc-vkg" secondAttribute="bottom" constant="50" id="hYM-e3-6id"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="udT-6N-BZq"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="buJ-ii-rOw" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1016.8" y="58.920539730134934"/>
-        </scene>
     </scenes>
     <resources>
         <image name="arrow" width="392.17022705078125" height="392.17022705078125"/>

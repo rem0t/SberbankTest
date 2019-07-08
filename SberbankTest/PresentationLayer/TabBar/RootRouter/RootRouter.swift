@@ -29,9 +29,6 @@ class RootRouter: NSObject {
         let historyLayer = HistoryRouter()
         routers.append(historyLayer)
         
-        let settingsLayer = SettingsRouter()
-        routers.append(settingsLayer)
-        
         tabBarModule = TabBarRouter.installIntoWindow(rootRouter: self, window: window, routers: routers)
         
     }

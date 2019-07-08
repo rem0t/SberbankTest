@@ -14,7 +14,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     var translations = [TranslateEtities]()
     var filteredTranslations = [TranslateEtities]()
-    var seacrh = UISearchController()
+    var search = UISearchController()
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -44,9 +44,9 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         navigationController?.navigationBar.topItem?.title = "История переводов"
         
-        seacrh = UISearchController(searchResultsController: nil)
+        search = UISearchController(searchResultsController: nil)
         
-        navigationItem.searchController = seacrh
+        navigationItem.searchController = search
         navigationItem.hidesSearchBarWhenScrolling = false
         navigationItem.searchController?.dimsBackgroundDuringPresentation = false
         navigationItem.searchController?.delegate = self
@@ -76,11 +76,11 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func searchBarIsEmpty() -> Bool {
-        return seacrh.searchBar.text?.isEmpty ?? true
+        return search.searchBar.text?.isEmpty ?? true
     }
     
     func isFiltering() -> Bool {
-        return seacrh.isActive && !searchBarIsEmpty()
+        return search.isActive && !searchBarIsEmpty()
     }
     
     // MARK: - Methods protocols input view

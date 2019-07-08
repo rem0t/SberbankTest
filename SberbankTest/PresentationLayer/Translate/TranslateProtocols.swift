@@ -10,19 +10,11 @@ import Foundation
 
 protocol TranslateViewProtocol: class {
     var presenter: TranslatePresenterProtocol? { get set }
-    /**
-     * Add here your methods for communication PRESENTER -> VIEW
-     */
-    
     func showTranslatedText(text: String)
-    
 }
 
 protocol TranslateRouterProtocol: class {
     static func presentTranslateModule(from view: AnyObject)
-    /**
-     * Add here your methods for communication PRESENTER -> WIREFRAME
-     */
 }
 
 protocol TranslatePresenterProtocol: class {
@@ -31,22 +23,14 @@ protocol TranslatePresenterProtocol: class {
     var router: TranslateRouterProtocol? { get set }
     
     func translateText(text: String, textCode: String)
-    
 }
 
 protocol TranslateInteractorOutputProtocol: class {
-    
     func translateTextHasCome(text: String)
-    
-    /**
-     * Add here your methods for communication INTERACTOR -> PRESENTER
-     */
 }
 
 protocol TranslateInteractorInputProtocol: class {
     var presenter: TranslateInteractorOutputProtocol? { get set }
     
     func makeTranslateText(text: String, textCode: String)
-    
-    
 }

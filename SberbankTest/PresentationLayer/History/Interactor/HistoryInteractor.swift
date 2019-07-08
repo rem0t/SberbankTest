@@ -19,7 +19,7 @@ class HistoryInteractor: HistoryInteractorInputProtocol
     }
     
     func fetchTranslations() -> [TranslateEtities] {
-        let managedContext = CoreDataContainer().persistentContainer.viewContext
+        let managedContext = CoreDataService().persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Translate")
         
         guard let fetchTranslations = try? managedContext.fetch(fetchRequest) else {
@@ -42,7 +42,7 @@ class HistoryInteractor: HistoryInteractorInputProtocol
     
     func deleteHistoryInDataBase() {
         
-        let managedContext = CoreDataContainer().persistentContainer.viewContext
+        let managedContext = CoreDataService().persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Translate")
         
         fetchRequest.returnsObjectsAsFaults = false
