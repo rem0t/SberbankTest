@@ -68,9 +68,10 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func filterContentForSearchText(_ searchText: String, scope: String = "All") {
 
-        filteredTranslations = translations.filter({ (transalte : TranslateEtities) -> Bool in
-            return transalte.lang.lowercased().contains(searchText.lowercased()) || transalte.translation.lowercased().contains(searchText.lowercased())
-        })
+        filteredTranslations = translations.filter {
+            $0.lang.lowercased().contains(searchText.lowercased()) ||
+            $0.translation.lowercased().contains(searchText.lowercased())
+        }
         
         tableView.reloadData()
     }
