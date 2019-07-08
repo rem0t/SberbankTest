@@ -64,6 +64,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func updateSearchResults(for searchController: UISearchController) {
         filterContentForSearchText(searchController.searchBar.text ?? String())
+        tableView.reloadData()
     }
     
     func filterContentForSearchText(_ searchText: String, scope: String = "All") {
@@ -72,8 +73,6 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
             $0.lang.lowercased().contains(searchText.lowercased()) ||
             $0.translation.lowercased().contains(searchText.lowercased())
         }
-        
-        tableView.reloadData()
     }
     
     func searchBarIsEmpty() -> Bool {
